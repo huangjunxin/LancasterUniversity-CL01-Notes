@@ -8,7 +8,7 @@
 | 出处 | *International Journal of Language Studies*, Vol. 19, No. 2, April 2025, pp. 75–90 |
 | 类型 | position paper（立场/论述文，不是实证研究） |
 | DOI | 10.5281/zenodo.15250820（文章首页印有；zenodo 链接本机访问返回 403，**开放获取状态未核实**） |
-| 课程内编号 | 文件名 `5-Brezina-192`；归属哪一周待确认（见 [NOTES.md](../NOTES.md)） |
+| 课程内编号 | 材料 5（文件名 `5-Brezina-192`）；**第 1 周**（用户 2026-10-29 确认） |
 
 ## 一句话
 

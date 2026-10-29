@@ -9,6 +9,9 @@
 |---|---|---|
 | 1.3 Glossary of terms | CASS 术语表，38 条 | 来源记录见 [glossary/cass-key-terms.md](../glossary/cass-key-terms.md) |
 | Lecture 1, part 2 | 14 页讲义：频率、Zipf 定律、结构化检索 | PPT 导出；元数据标题写的是 “CORPUS DESIGN”，内容是频率；截图基于 #LancsBox X **5.0.3.9** |
+| 材料 5：Brezina (2025) AI 论文 | 16 页立场论文：form vs meaning、三条语言建模路径 | [阅读笔记](../reference/reading-brezina-2025-ai.md) |
+
+> 已知缺口：Lecture 1 应该还有 **part 1**（文件名是 pt2），以及 1.1 / 1.2 / 1.4 一类编号材料。拿到再补进上表。
 
 ## 本周目标（自拟，听完课后按课程实际内容校正）
 
@@ -76,6 +79,30 @@ p13：同一条查询换 subcorpus（BNC2014 → informal speech，11M），表�
 
 **Message 3（p14）：#LancsBox offers powerful searches.** 也就是说，检索能力的关键不是“能不能搜词”，而是能不能把“词元 + 词性 + 邻接 + 句界”这些条件一起说清楚。
 
+### 4. 课程立场的另一半：AI 处理形式，意义在语境里
+
+Brezina（2025，材料 5）把整门课的问题意识说清楚了 —— 课程标题里的 “new technologies” 不是噱头：
+
+- 电脑处理的是**形式**（0/1 编码的词形），人交流的是**意义**；意义来自社会互动与语境
+- LLM 是不可复现的黑箱：同一个问题换个问法，结论可以相反，也追不到答案的来源
+- 因此语料库方法的价值在 **transparent evidence + functional context**：证据可查、语境可见、分析者留在图里
+
+最能说明问题的是四个 **good** 的例子（论文 pp.81–82）：sentiment analysis 判正面，ChatGPT 给出互相矛盾的答案，concordance 一看是反讽。**形式频率完全相同，意义只在语境里。**
+
+→ 细节见 [阅读笔记](../reference/reading-brezina-2025-ai.md)。
+
+## 第 1 周通关清单
+
+这周材料堆得比较久，用下面几条判断能不能进第 2 周（都能用自己的话说出来就算过）：
+
+- [ ] 能说清语料库和“一堆文本”的差别：representativeness、balance、size 各管什么
+- [ ] 能手算 relative frequency：148 次 / 102M tokens 为什么是 1.45
+- [ ] 能解释 Zipf 定律一句话版本，以及它为什么让“低频词的结论”不可靠
+- [ ] 能说出 `[hw="sit"]` 与 `[word="sit"]` 的差别
+- [ ] 能在 #LancsBox 里跑通讲义那条查询，命中数对上 148 (1.45)；对不上时知道先查 token 口径
+- [ ] 能用四个 good 的例子讲清 form 与 meaning 的区别
+- [ ] CASS 术语表里 W1 相关条目（corpus / concordance / KWIC / token / type / balance / representativeness）能不看表解释
+
 ## 工具实操
 
 | 日期 | 工具 | 语料 | 查询 / 采样 | 参数 | 结果 | 截图 |
@@ -113,5 +140,6 @@ p13：同一条查询换 subcorpus（BNC2014 → informal speech，11M），表�
 - 课程材料 1.3：CASS 术语表（38 条，2013 / 2018 rev）→ [来源记录](../glossary/cass-key-terms.md)、[条目](../glossary/terms.md)
 - Lecture 1 part 2（14 页，课程后台，未入库）
 - 查询语法怎么学 → [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)（含官方手册 / cheat sheet / 练习）
+- 材料 5：Brezina (2025) → [阅读笔记](../reference/reading-brezina-2025-ai.md)
 - Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
 - Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)
