@@ -14,7 +14,7 @@
 | colligation | 类联接 | 语法范畴之间的共现，或词与语法范畴之间的共现 | p5 | W2 |
 | collocation | 搭配 | 词或短语之间的共现关系：一个词出现时另一个更可能出现 | p5 | W2 |
 | comparability | 可比性 | 两个语料（子库）的采样框相似或相同，才可比较 | p5 | W4 |
-| concordance | 索引 / 语境共现 | 检索项每次出现时连前后语境一起列出 | p5 | W1 |
+| concordance | 索引 / 语境共现 | 一种**显示格式**：检索项连同其即时语境（immediate context）逐行列出 | p5 | W1 |
 | concordancer | 索引工具 | 能从文本或语料生成 concordance 的程序 | p5 | W1 |
 | corpus / corpora | 语料库 | 某语言变体或体裁的代表性语言集合，以电子形式存储、供软件分析 | p6 | W1 |
 | corpus construction | 语料库建设 | 设计、采文、编码、组装、存元数据、加标记、可能再加标注的全过程 | p6 | W4 |

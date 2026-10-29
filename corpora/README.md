@@ -7,6 +7,8 @@
 | 语料 | 在哪 | 大致用途 | 卡片 |
 |---|---|---|---|
 | BNC 1994（XML edition） | CQPweb | 通用参照语料，几乎所有比较的基准 | 待建 |
+| **BNC2014** | CQPweb / #LancsBox（随工具提供，CLAWS7 标注） | **当代英式英语的大型通用语料库**（general corpus）；课程演示用其 whole corpus（约 1 亿词）。注意它是通用库，不是口语库 | 待建 |
+| Spoken BNC2014 | CQPweb / #LancsBox 子库 | 口语部分（约 1100 万词），第 5 周社会语言学会用到；别把子库当全集 | 待建 |
 | Spoken BNC2014 | CQPweb / BNCLab | 口语、社会变量、与 1994 对比 | 待建 |
 | British English 2006 / 2021、American English 2006、B-Brown 1930s、Brown Family (extended) | CQPweb | 跨变体、跨时间对比 | 待建 |
 | 50% sample of ukWaC | CQPweb | 大规模网络语料，观察高频模式 | 待建 |
