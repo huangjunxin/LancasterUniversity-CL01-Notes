@@ -46,3 +46,4 @@
 
 - 官网手册（中/英/日）与 cheat sheet
 - Brezina et al. (2015)、Brezina et al. (2021) —— 官网 Research Papers 区可下载
+- 官网 [History of corpus linguistics](https://lancsbox.lancs.ac.uk/history/) —— 已照录进 [reference/corpus-linguistics-history.md](../reference/corpus-linguistics-history.md)

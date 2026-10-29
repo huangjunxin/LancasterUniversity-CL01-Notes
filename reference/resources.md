@@ -16,6 +16,7 @@
 | #LancsBox X | https://lancsbox.lancs.ac.uk/ | 下载、手册（含中文）、cheat sheet、练习、论文 |
 | CQPweb (Lancaster) | https://cqpweb.lancs.ac.uk/ | 需注册；托管语料清单在首页 |
 | BNCLab | https://bnclab.lancs.ac.uk/ | BNC1994 / 2014 对比界面 |
+| 工具史时间线 | https://lancsbox.lancs.ac.uk/history/ | #LancsBox 官网的语料库语言学里程碑（止于 1993），已转成 [本页](corpus-linguistics-history.md) |
 
 ## 读物（待核实，未下载）
 

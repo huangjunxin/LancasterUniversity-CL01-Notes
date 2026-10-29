@@ -39,4 +39,4 @@
 
 ## 参考
 
--
+- [#LancsBox 官网的语料库语言学工具史时间线](../reference/corpus-linguistics-history.md)（1900s–1993，7 个节点）
