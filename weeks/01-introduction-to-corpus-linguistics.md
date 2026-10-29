@@ -306,7 +306,7 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 2. **语料库能同时做定量与定性** —— 先在大数据上看频率与搭配强度，再回到具体语境和个体叙述；这正是访谈里说的“bridging the gap”（随机对照试验 vs 质性研究）
 3. **应用场景决定方法** —— 健康传播要伦理与规模并重（线上论坛数据尤其要谨慎），语言测试要代表性，金融文本要可解释性
 
-> 转录说明：以**英文转录为准**（中文那版是机翻，把 ESRC CASS 译成“中科院社会科学研究中心”）。英文自动转写本身也有小错：人名写作 “Elena Samino”（应为 **Semino**）、`throbbing` 作 “thrubbing”、`taut` 作 “taught”、`EEG` 作 “EG”、Macbeth 作 “McBth”。
+> 转录说明：以**英文转录为准**（中文机翻版已删除 —— 它把 ESRC CASS 译成“中科院社会科学研究中心”）。英文自动转写本身也有小错：人名写作 “Elena Samino”（应为 **Semino**）、`throbbing` 作 “thrubbing”、`taut` 作 “taught”、`EEG` 作 “EG”、Macbeth 作 “McBth”。
 
 ## 第 1 周通关清单
 
