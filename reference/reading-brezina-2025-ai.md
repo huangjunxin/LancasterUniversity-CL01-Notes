@@ -64,6 +64,9 @@ AI 处理的是“形式”，理解“意义”仍要人在语境里做；语�
 
 ## 对课程的实际用法
 
+- 第 1 周 pt3–pt4 直接用它：pt3 引它的 balanced approach 与“human analyst 的角色”，pt4 用它的三个底线收尾
+- 文中预告的 easy annotations，pt3 课上已演示（给索引行标 negative / neutral / positive 并自动统计）
+
 课程标题就是 “Corpus linguistics and **new technologies**: data, language and society”，本文基本是这条线的理论支撑。三条可操作的检查（我按论文逻辑转写，不是原文）：
 
 1. 任何 LLM 辅助得到的结论，先问“**能不能复现同一个结果**”

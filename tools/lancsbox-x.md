@@ -23,6 +23,7 @@
 | Wizard | 向导式流程，新手跟着点 |
 | 内置语料 | 如 Hansard Corpus（1802 至今英国议会发言，约 20 亿词） |
 | web scraping | 抓取网络文本进语料（见 Brezina 2025 摘要） |
+| 标注 concordance 行 | 给索引行打类目（如 evaluation: negative / neutral / positive），可抽样、自动统计占比（pt3 演示） |
 
 配套还有：英文 / 中文 / 日文手册、英文速查表（cheat sheet）、练习（exercises）。**中文手册存在**，卡住先翻它。
 

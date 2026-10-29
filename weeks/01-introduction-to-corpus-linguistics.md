@@ -7,13 +7,14 @@
 
 | 材料 | 内容 | 备注 |
 |---|---|---|
-| 1.3 Glossary of terms | CASS 术语表，38 条 | 来源记录见 [glossary/cass-key-terms.md](../glossary/cass-key-terms.md) |
-| Lecture 1, part 2 | 14 页讲义：频率、Zipf 定律、结构化检索 | PPT 导出；元数据标题写的是 “CORPUS DESIGN”，内容是频率；截图基于 #LancsBox X **5.0.3.9** |
-| Lecture 1, part 3 | 6 页：semantic prosody（sit through 的负面语境）+ 为什么不能拿搜索引擎/ChatGPT 当语料 | 截图基于 #LancsBox X 5.0.3.9 |
-| Lecture 1, part 4 | 7 页：两个测试（频率 / 多词表达）+ 最终结论；附英文转录 | 截图基于 #LancsBox X **5.0.3.8** |
-| 材料 5：Brezina (2025) AI 论文 | 16 页立场论文：form vs meaning、三条语言建模路径 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；part 3 的 p4–p6 就是这篇
+| 1.3 Glossary of terms | CASS 术语表，38 条 | [来源记录](../glossary/cass-key-terms.md) |
+| Lecture 1, part 1 | 转录为主：concordance 与 frequency 两个镜头、Cruden 的圣经索引 | 只有转录，没拿到幻灯片 |
+| Lecture 1, part 2 | 14 页：频率、Zipf、CQL | 截图基于 #LancsBox X 5.0.3.9 |
+| Lecture 1, part 3 | 6 页：semantic prosody、索引行标注、Kilgarriff | 截图基于 5.0.3.8 / 5.0.3.9 |
+| Lecture 1, part 4 | 7 页：两个测试 + 最终结论 | 截图基于 5.0.3.8 |
+| 材料 5：Brezina (2025) AI 论文 | 16 页立场论文 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；pt3–pt4 都在引它 |
 
-> 已知缺口：Lecture 1 应该还有 **part 1**，以及 1.1 / 1.2 / 1.4 一类编号材料。拿到再补进上表。
+四节录像的英文转录放在本地 `source/`（已 gitignore，不入库）。
 
 ## 本周目标（自拟，听完课后按课程实际内容校正）
 
@@ -21,175 +22,169 @@
 - token 与 type 的区别，为什么所有频率都要换算成 per million
 - 课程演示里第一眼看到的 BNC 是什么、为什么它常被当参照
 
+## 全课线索：四条 Message
+
+这一周不是四段独立内容，是同一个论证的四步。讲者每节都收在一条 Message 上：
+
+| 出处 | Message 原文 | 换成一句话 |
+|---|---|---|
+| pt1 | Concordance and frequency reveal the words, meaning and importance | 两个镜头：语境 + 频率 |
+| pt2 | We report frequency using both absolute and relative values | 报频率必须两个数一起给 |
+| pt2 | Words are rare | 所以语料必须大到百万、十亿级 |
+| pt2 | #LancsBox offers powerful searches: simple, smart, CQL | 查询能力分三层 |
+| pt3 | Semantic prosody is part of the meaning | 意义在搭配里，不在词典里 |
+| pt4 | Corpus linguistics remains essential——AI complements, not replaces | AI 是补充，不是替代 |
+
 ## 笔记
 
-### 1. 频率是语料库的独门优势
+### 1. pt1：concordance 与 frequency 是两个镜头
 
-Leech（2011: 7，讲义 p1 引）：
+讲者开场用了一个比喻（转录）：两者是**观察数据的两个镜头**（two lenses），都靠专门的软件来看。
 
-> If asked what is the one benefit that corpora can provide and that cannot be provided by other means, I would reply ‘information about frequency’.
+- **concordance（KWIC）** 给出“用法”：一个词每次出现时连同左右语境一起排开，这是理解意义的入口
+- **frequency** 给出“重要程度”：出现得多不多、值不值得当结论
+- 界面上通常三者并列：absolute frequency、relative frequency，以及**跨文本 / 语域 / 体裁的分布 —— 这就是 dispersion（离散度）**（pt1 第一次出现）
 
-两种频率（p2）：
+历史对照：中世纪的圣经索引是手工做的 —— Cruden 的 *Concordance of the Holy Scriptures* 花了一年、每天 18 小时；今天软件几秒出结果。pt1 那个二维码指向的就是官网的[工具史时间线](../reference/corpus-linguistics-history.md)。
+
+现场演示（转录）：BNC2014（**1 亿词**当代英式英语）里查 sit through，得到 sat through / sitting through 等所有形态；按左语境过滤 **have / had to sit through**，这一类约占全部索引行 **10%**。
+
+### 2. pt2：频率两个数一起报（Message 1）
+
+Leech（2011: 7）被引作这一段的支点：语料库能给的独门东西，就是 “information about frequency”。
 
 | 类型 | 定义 | 用途 |
 |---|---|---|
-| absolute frequency | 某个语言表达在语料中出现多少次，直接数 hits | 原始证据量 |
-| relative frequency | 每给定词数（如 1M）出现多少次 | 估计出现概率；**跨不同规模的语料比较** |
+| absolute（raw）frequency | 直接数 hits | 原始证据量 |
+| relative frequency | 每给定词数（通常 1M）出现几次 | 估计概率、**跨不同规模的语料比较** |
 
-计算公式（p3）：
-
-```
+~~~
 relative frequency = absolute frequency / number of tokens in corpus × basis for normalization
-```
+~~~
 
-讲义例子：148 次命中 / BNC2014 全库 102M tokens = **1.45**（每百万词）。
+例子（pt2 p3–p4）：148 次命中 / BNC2014 全库 102M tokens = **1.45**（每百万词）。
 
-> 我的注：这里分母写 102 而不是 102,000,000，是因为归一化基数选的是“百万词”。**分母单位必须和基数单位对齐**，这是换算最容易错的一步，也是第 2 周做跨语料比较的前置条件。
+> 我的注：分母写 102 而不是 102,000,000，因为基数选的是“百万词”。**分母单位必须和基数单位对齐** —— 差这一步就是六个数量级。
 
-图里那次查询（p3–p4，BNC2014 · 2.0 CLAWS7 · whole corpus）：`[hw="sit" pos="V.*"] through within <s/>`，Freq 148 (1.45)，Texts 128/88,171。
+操作细节（转录）：#LancsBox 会**同时**显示 absolute 与括号里的 relative，还能直接复制粘贴进报告。
 
-**Message 1（p5）：报频率时，绝对值与相对值一起报。** 只给 1.45 读者不知道证据有多少，只给 148 无法和别人比较。
+### 3. pt2：Zipf 定律 —— words are rare（Message 2）
 
-### 2. Zipf 定律：词是稀有的
+- 按词频排序，第 2 高频约是第 1 的 1/2，第 3 约 1/3，依此类推；讲者强调 **“This is approximate numbers”**
+- 100M 语料里：the ≈ **6,000,000**；of ≈ **3,000,000**（正好一半）；people / time / year 这类实词已经拖到图尾
+- 推论：要观察稳定模式，语料得是**百万到十亿词**级别 —— 这是“为什么需要大语料”的正式理由
+- 细节见 Brezina (2018) 第 2 章 → [章节地图](../reference/book-brezina-2018.md)
 
-- 按词频排序，第 2 高频词的频次约为第 1 的 1/2，第 3 约为 1/3，依此类推（p6，Brezina 2018 第 2 章）
-- 直接后果：**语料能提供的“关于某个词”的证据量衰减极快**
-- 可视化（p7）：横轴 rank、纵轴 absolute frequency 的散点 —— the 6,041,234 / of 3,042,376 / and 2,616,708 / was 881,473 / people 121,591，横轴一直铺到 60 多万名
+### 4. pt2：CQL 与三层检索（Message 3）
 
-**Message 2（p8）：Words are rare.** 所以后面所有统计量（搭配、关键词）都要在“大多数词没几次”这个前提下谈，不能拿单个低频词的频率差当结论。
-
-### 3. 结构化检索：#LancsBox 的查询语法
-
-讲义用同一个查询串讲了四页（p9–p13）：
-
-```
-[hw="sit" pos="V.*"] through within <s/>
-```
+查询串拆解（`[hw="sit" pos="V.*"] through within <s/>`）：
 
 | 片段 | 作用 |
 |---|---|
-| `[hw="sit" pos="V.*"]` | 词元（headword）是 sit、词性是动词 → 命中 sit / sits / sat / sitting |
+| `[hw="sit" pos="V.*"]` | 词元 sit 且词性为动词 → sit / sits / sat / sitting |
 | `through` | 紧邻的下一词 |
-| `within <s/>` | 把匹配限制在同一句内 |
+| `within <s/>` | 限制在同一句内 |
 
-对比例子（p12）：
+正反例（转录给了原话）：*“then having sat through over an hour of this”* 命中；*“stones upon which you can sit. Through those two spruce trees”* 被句界挡掉。
 
-- ✓ Then, having **sat through** over an hour of this → 命中
-- ✗ stones upon which you can **sit. Through** those two spruce trees → 被句界挡住
+三层检索（Message 3）：
 
-p13：同一条查询换 subcorpus（BNC2014 → informal speech，11M），表格清空 —— 查询结果是绑定语料/子库的，换了库要重跑。
+| 层 | 写法 | 例子 |
+|---|---|---|
+| simple | 直接打词 / 短语 | `love`、`I love going` |
+| smart | 大写关键词 | `TIME`（语义相关词）、`PASSIVE`（被动结构）、`EMOTION` / `E2` |
+| CQL | 方括号 + 结构约束 | 上面那条 |
 
-**Message 3（p14）：#LancsBox offers powerful searches.** 也就是说，检索能力的关键不是“能不能搜词”，而是能不能把“词元 + 词性 + 邻接 + 句界”这些条件一起说清楚。
+语法细节与学习路线见 [CQL 速查](../reference/cql-cheatsheet.md)。
 
-### 4. 课程立场的另一半：AI 处理形式，意义在语境里
+### 5. pt3：semantic prosody（Message 4）
 
-Brezina（2025，材料 5）把整门课的问题意识说清楚了 —— 课程标题里的 “new technologies” 不是噱头：
+看 sit through 的索引行，左右语境有固定倾向（转录原话）：
 
-- 电脑处理的是**形式**（0/1 编码的词形），人交流的是**意义**；意义来自社会互动与语境
-- LLM 是不可复现的黑箱：同一个问题换个问法，结论可以相反，也追不到答案的来源
-- 因此语料库方法的价值在 **transparent evidence + functional context**：证据可查、语境可见、分析者留在图里
+- 左边常见：**bravely · rather than · forced to · had to**
+- 右边常见：**10 hours of · it again · the painful lecture · those meetings about nothing**
 
-最能说明问题的是四个 **good** 的例子（论文 pp.81–82）：sentiment analysis 判正面，ChatGPT 给出互相矛盾的答案，concordance 一看是反讽。**形式频率完全相同，意义只在语境里。**
-
-→ 细节见 [阅读笔记](../reference/reading-brezina-2025-ai.md)。
-
-### 5. semantic prosody：搭配会带评价色彩
-
-**Message 4（pt3 p3）：Semantic prosody is part of the meaning.**
-
-讲义用同一个查询 `[hw="sit" pos="V.*"] through within <s/>` 的 148 条结果（p1），把语境词圈出来：
-
-> bravely · rather than · forced to · had to · 10 hours of · the painful lecture · it again · those meetings about nothing
-
-按右搭配排序（p2）更清楚：
+按右搭配排序（pt3 p2）：
 
 | 左 | 节点 | 右 |
 |---|---|---|
-| forget your toothbrush: Could you | sit through | 10 hours of Shakespeare performed |
+| Could you | sit through | 10 hours of Shakespeare performed |
 | half a brain would happily | sit through | 100 million billion awkward, uncomfortable |
 | The average worker will | sit through | 6,240 meetings during their career |
-| of player expression. Evan: We | sat through | a 20-minute demo, and |
+| We | sat through | a 20-minute demo |
 | | sitting through | a 20-minute fashion show |
-| help myself. I'd sooner | sit through | a bad play in a |
+| I’d sooner | sit through | a bad play |
 
-结论：**sit through 不只是“sit + through”，而是“熬过（不快的事）”**。这层评价色彩不在词典释义里，只能从搭配分布读出来 —— 这正是“意义在语境里”的可操作版本。
+结论：**sit through 带明显的负面语义韵** —— 我们要么被 forced、要么 have to，会 “do anything rather than” 熬过去。这层评价**不在词典释义里，只能从搭配分布读出来**。
 
-它也把 pt2 和 pt3 接成一条线：频率（pt2）→ KWIC 把 148 条语境摊开 → 从搭配看出评价（pt3）→ 意义。
+### 6. pt3：给索引行打标注（课堂实操）
 
-### 6. 为什么不能“Google 一下”或“问 ChatGPT”
+课上演示了最新版 #LancsBox 的标注功能：
 
-- pt3 p5：中文屋漫画（一台电脑在箱子里，只留 IN / OUT）—— 形式进出，没有意义
-- pt3 p6：Kilgarriff (2007) 的 *Last words: Googleology is bad science*，讲义把标题改成 **“ChatGPTology is Bad Science”**
+1. 定义类目，例如 **evaluation**，三个层级：negative（红）/ neutral（琥珀）/ positive（绿）
+2. 不必标注全部索引行 —— 可以**随机抽 10 条**做示范
+3. 点选单条或多条给值，边看更多语境边判断
+4. 工具**自动统计**各类占比
 
-Kilgarriff 那段话批评的是：把搜索引擎命中数当成语言频率来用 —— 门槛低，但没有语料库边界、没有归一化、数字不稳定。换成 ChatGPT 同理：回答不可复现、来源不可追溯（见 [材料 5 的阅读笔记](../reference/reading-brezina-2025-ai.md)）。
+意义：把“我读出来的评价”变成**可计数、可复核**的东西 —— 这正是 [材料 5](../reference/reading-brezina-2025-ai.md) 里预告的 easy annotations，课上看到实操了。
 
-> 我的理解：这不是“别用 AI”，而是“别把 AI 的输出当数据”。数据要有边界和口径，解释要能追溯到语境 —— 这两件事恰好就是语料库方法在做的事。
+### 7. pt3：Kilgarriff 与“别把判断外包”
 
-### 7. 两个测试：AI 的数字和定义都靠不住
+- 讲者先引 2025 那篇论文的立场：balanced approach —— 承认语料方法的价值，同时对新技术的可能性保持开放；但要先回答：**human analyst 在这套流程里还剩什么角色？把人 engineer out 之后还剩下什么？**
+- 再引 Kilgarriff (2007) *Googleology is bad science*：他批评的不是“用网络”，而是**把分析师的主体性（agency）整体外包给单一工具**
+- 讲者的改写：**ChatGPT-logy is bad science —— “if we just rely on a single tool”**
 
-**测试一：频率（pt4 p1–p2）**
+> 我的注：所有批评都指向“单一工具 + 不核查”，不是工具本身。语料库方法在这里的作用是提供可查的第二意见。
 
-问 ChatGPT：“people 每百万词出现多少次？比 time 多吗？” 它给了带语料出处的答案，然后被逐条核对：
+### 8. pt4：两个测试（数字与意义）
 
-| 词 | ChatGPT 说的 BNC1994 | BNC2014 | COCA | **#LancsBox 实测 BNC2014** |
-|---|---|---|---|---|
-| people | ~2,100 | ~2,500 | ~2,200 | **1,222.62**（125,080 次） |
-| time | ~2,200 | ~2,400 | ~2,000 | **1,609.05**（164,614 次） |
+**测试一：频率**（pt4 p1–p2）—— 问 ChatGPT「people 每百万词多少？比 time 多吗？」，它给了带出处的答案，逐条核对：
 
-排序碰巧是对的（time > people），但**数字全部虚高**：people 高约一倍，time 高约 50%。实测环境：BNC2014 whole corpus，102M tokens，词表 858,450 个 type。
+| 词 | ChatGPT 的 BNC2014 | **#LancsBox 实测** |
+|---|---|---|
+| people | ~2,500 | **1,222.62**（125,080 次） |
+| time | ~2,400 | **1,609.05**（164,614 次） |
 
-**测试二：多词表达是否存在（pt4 p3–p6）**
+排序碰巧对，**数字虚高一倍左右**（102M tokens，词表 858,450 个 type）。
 
-“education and courage” 是不是英语里的固定搭配？
+**测试二：多词表达**（pt4 p3–p6）——“education and courage”：
 
 | 查法 | 结果 |
 |---|---|
-| 问 ChatGPT | 认真解释 education、courage，还给出一句现成 motto：“We need education to understand the world, and courage to change it.” |
+| 问 ChatGPT | 认真解释两个词，还给现成 motto：“We need education to understand the world, and courage to change it.” |
 | #LancsBox 查 BNC2014 | **Freq 0 (0)**，Texts 0/88,171，表格空白 |
-| Google 精确检索 | 约 **26 条**，多是 TikTok / Instagram / YouTube 的励志内容，常常被标点切开 |
+| Google 精确检索 | 约 **26 条**，多为 TikTok / Instagram 励志内容，常被标点切开 |
 
-→ 这是一个 **non-collocational expression**：AI 能给你一个像样的“意思”，语料告诉你它根本没被使用。
+→ 这是 **non-collocational expression**：AI 给了一个像样的“意思”，语料证明它没被使用过。对照工具：Routledge *A Frequency Dictionary of Multi-Word Expressions in British English*（Brezina & Gablasova 编）。
 
-对照资源（p6）：Routledge 的 *A Frequency Dictionary of Multi-Word Expressions in British English*，作者正是 **Brezina 与 Gablasova** —— 课程两位讲师出的工具书，专查这类“到底有没有这个说法”。
-
-### 8. 讲者的结论
-
-pt4 p7（转录同）：
-
-> Corpus linguistics remains essential—AI and LLMs are valuable tools that complement, not replace, corpus analysis. Transparency, replicability, and critical evaluation remain crucial.
-
-换成三个可执行的检查：
-
-1. **transparency**：这个数字来自哪个语料、多大、怎么切词？说得出才算证据
-2. **replicability**：换个人、换个时间，能不能得到同一个结果？
-3. **critical evaluation**：是不是把一个“看着像”的表达当成了真实用法？
-
-> 我的注：这两个测试合起来正好闭环 —— 测试一说明 AI 会给**假数字**，测试二说明 AI 会给**假意义**。前者用语料查，后者用搭配分布查，两者都不是“问一句”能解决的。
+**最终 Message**（pt4 p7）：语料库语言学仍然必要，AI 是补充而非替代；**transparency、replicability、critical evaluation** 三条底线不变。
 
 ## 第 1 周通关清单
 
-这周材料堆得比较久，用下面几条判断能不能进第 2 周（都能用自己的话说出来就算过）：
+都能用自己的话说出来，就可以进第 2 周：
 
 - [ ] 能说清语料库和“一堆文本”的差别：representativeness、balance、size 各管什么
+- [ ] 能说出 concordance 与 frequency 各回答什么问题（“两个镜头”）
 - [ ] 能手算 relative frequency：148 次 / 102M tokens 为什么是 1.45
 - [ ] 能解释 Zipf 定律一句话版本，以及它为什么让“低频词的结论”不可靠
 - [ ] 能说出 `[hw="sit"]` 与 `[word="sit"]` 的差别
-- [ ] 能在 #LancsBox 里跑通讲义那条查询，命中数对上 148 (1.45)；对不上时知道先查 token 口径
+- [ ] 能区分 simple / smart / CQL 三层检索，各举一例
+- [ ] 能举出 sit through 的三个负面搭配，并解释 semantic prosody
+- [ ] 能说清给索引行打标注是为了什么（可计数、可复核）
 - [ ] 能用四个 good 的例子讲清 form 与 meaning 的区别
-- [ ] 能举出 sit through 的三个负面搭配，并解释“semantic prosody 是意义的一部分”
-- [ ] 能说明 Kilgarriff 为什么说“拿搜索命中数当频率”是坏科学
-- [ ] 能复述 people / time 测试：ChatGPT 的数字和 BNC2014 实测差多少
-- [ ] 能说出 education and courage 在 ChatGPT / BNC2014 / Google 三处的结果，并解释差异
-- [ ] 能背出最后一句的三个词：transparency、replicability、critical evaluation
-- [ ] CASS 术语表里 W1 相关条目（corpus / concordance / KWIC / token / type / balance / representativeness）能不看表解释
+- [ ] 能复述 people / time 测试：AI 数字 vs 语料实测差多少
+- [ ] 能说出 education and courage 在三处的结果，并解释差异
+- [ ] 能背出最后三个词：transparency、replicability、critical evaluation
 
 ## 工具实操
 
 | 日期 | 工具 | 语料 | 查询 / 采样 | 参数 | 结果 | 截图 |
 |---|---|---|---|---|---|---|
 |  | #LancsBox X | BNC2014（whole corpus） | `[hw="sit" pos="V.*"] through within <s/>` | 期望 Freq 148 (1.45)，Texts 128/88,171 | **待复现** |  |
+|  | #LancsBox X | BNC2014（whole corpus） | 词表查 time / people | 期望 1,609.05 / 1,222.62 | **待复现** |  |
+|  | #LancsBox X | BNC2014（whole corpus） | 短语查 `education and courage` | 期望 Freq 0 (0) | **待复现** |  |
 
-> 复现目的：验证自己环境的 BNC2014 token 数（讲义显示 102M）与课件一致；不一致就不是“照抄答案”，而是先对口径。
+> 三条都复现之后，才算“自己的环境与课程口径一致”。
 
 ## 练习与测验
 
@@ -199,30 +194,28 @@ pt4 p7（转录同）：
 
 ## 结论
 
-第 1 周的内核一句话：**频率必须归一化后才能比较，而 Zipf 定律决定了大多数词根本拿不到足够证据** —— 后面所有方法都在跟这两件事打交道。
+第 1 周的内核一句话：**频率必须归一化才能比较（Zipf 又说明大多数词证据不足），而意义只能从搭配与语境里读出来** —— AI 能给看似合理的数字和解释，但两者都可能经不起语料核对。
 
 ## 疑问（待查）
 
-- [ ] #LancsBox X 5.0.3.9（课件）与官网 6.0.2 的查询语法是否完全兼容？升级后哪些写法变了？
-- [ ] 讲义里 BNC2014 是 102M tokens，BNC2014 的官方规模口径是多少（含/不含标点、是否按 CLAWS7 token）？
-- [ ] “basis for normalization” 取 1M 是课程统一规定还是按语料规模选？做 keyness 时是否换基数？
+- [ ] #LancsBox X 5.0.3.x（课件）与官网 6.0.2 的查询语法、标注功能是否一致？
+- [ ] 讲义里 BNC2014 是 102M tokens，官方规模口径是多少（含/不含标点、按 CLAWS7 token）？
+- [ ] “basis for normalization” 取 1M 是课程统一规定，还是按语料规模选？做 keyness 时换不换？
+- [ ] 标注功能里“随机抽 10 条”是抽样策略还是仅演示？正式做评价标注时样本量怎么定？
 
 ## 术语新增 → [glossary/terms.md](../glossary/terms.md)
 
-- absolute frequency / relative frequency / basis for normalization
-- Zipf's law
-- headword（查询语法里的 hw）
-- subcorpus
+- dispersion（pt1 首次出现）、semantic prosody、multi-word expression
+- absolute / relative frequency、basis for normalization、Zipf’s law、subcorpus
+- CQL / CEQL、p-attribute / s-attribute、headword
 
 ## 参考
 
-- [#LancsBox 官网的语料库语言学工具史时间线](../reference/corpus-linguistics-history.md)（1900s–1993，7 个节点）
-- 课程材料 1.3：CASS 术语表（38 条，2013 / 2018 rev）→ [来源记录](../glossary/cass-key-terms.md)、[条目](../glossary/terms.md)
-- Lecture 1 part 2（14 页，课程后台，未入库）
-- 查询语法怎么学 → [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)（含官方手册 / cheat sheet / 练习）
+- [#LancsBox 官网的工具史时间线](../reference/corpus-linguistics-history.md)（pt1 二维码指向；1900s–1993，7 个节点）
+- 课程材料 1.3：CASS 术语表（38 条）→ [来源记录](../glossary/cass-key-terms.md)
+- 查询语法 → [CQL 速查](../reference/cql-cheatsheet.md)
 - 材料 5：Brezina (2025) → [阅读笔记](../reference/reading-brezina-2025-ai.md)
-- Kilgarriff, A. (2007). Last words: Googleology is bad science. *Computational Linguistics*, 33(1), 147–151.（讲义 pt3 p6 引用，未下载）
-- Brezina, V. & Gablasova, D. *A Frequency Dictionary of Multi-Word Expressions in British English*. Routledge.（pt4 p6 展示，未下载）
-- Lecture 1 part 4 的英文转录（课程后台，未入库）
-- Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
-- Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)
+- Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（Zipf 细节）→ [章节地图](../reference/book-brezina-2018.md)
+- Leech, G. (2011).（pt2 引用，未下载）
+- Kilgarriff, A. (2007). Last words: Googleology is bad science. *Computational Linguistics*, 33(1), 147–151.（pt3 引用）
+- Brezina, V. & Gablasova, D. *A Frequency Dictionary of Multi-Word Expressions in British English*. Routledge.（pt4 展示）
