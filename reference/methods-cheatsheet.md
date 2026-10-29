@@ -1,6 +1,8 @@
 # 方法速查：频率 / 搭配 / 关键词
 
-**定位：课前预读与自查表，不是课程讲义。** 口径以课程讲授与 Brezina (2018) *Statistics in Corpus Linguistics* 为准；发现冲突，改本页并记进 [learning-records/](../learning-records/)。
+**定位：课前预读与自查表，不是课程讲义。** 口径以课程讲授与 Brezina (2018) *Statistics in Corpus Linguistics* 为准（[章节地图](book-brezina-2018.md)）；发现冲突，改本页并记进 [learning-records/](../learning-records/)。
+
+本页各节对应的正式出处：频率与离散度 → ch2；搭配与关键词 → **ch3 §3.2、§3.4**；效应量与“为什么要报效应量” → **ch8 §8.4**。
 
 ## 1. 频率
 

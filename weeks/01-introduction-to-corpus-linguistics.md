@@ -113,4 +113,4 @@ p13：同一条查询换 subcorpus（BNC2014 → informal speech，11M），表�
 - 课程材料 1.3：CASS 术语表（38 条，2013 / 2018 rev）→ [来源记录](../glossary/cass-key-terms.md)、[条目](../glossary/terms.md)
 - Lecture 1 part 2（14 页，课程后台，未入库）
 - Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
-- Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2.（讲义 p6 引用）
+- Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)

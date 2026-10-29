@@ -21,7 +21,7 @@
 
 ## 读物（待核实，未下载）
 
-- Brezina, V. (2018). *Statistics in Corpus Linguistics: A Practical Guide*. Cambridge University Press.
+- Brezina, V. (2018). *Statistics in Corpus Linguistics: A Practical Guide*. Cambridge University Press. DOI: https://doi.org/10.1017/9781316410899 —— 课程参考书，[目录地图与按周路线](book-brezina-2018.md)
 - Brezina, V., McEnery, T. & Wattam, S. (2015). Collocations in context: A new perspective on collocation networks. *International Journal of Corpus Linguistics*.
 - Rychlý, P. (2008). A lexicographer-friendly association score. (logDice 的出处)
 - Hardie, A. (2012). CQPweb — combining power, flexibility and usability in a corpus analysis tool.

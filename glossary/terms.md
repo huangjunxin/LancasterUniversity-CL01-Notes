@@ -20,6 +20,7 @@
 | corpus-based | 语料库为基 | 用语料检验预设假设或例证既有理论（区别于 bottom-up 的 corpus-driven） | p6 | W1 |
 | corpus-driven | 语料库驱动 | 自下而上从数据里找模式，再用模式解释规律与例外 | p6 | W1 |
 | diachronic | 历时的 | 采样跨时间段的文本，用来研究语言使用的变化 | p6 | W5 |
+| dispersion | 离散度 | 一个词在全库各文本/子库里的分布是否均匀，光有总频掩盖“全挤在一两篇里” | — | W2 |
 | encoding | 编码 | 用标记语言与标注表示文本结构的过程 | p6 | W4 |
 | frequency list | 词频表 | 某类项目（词、名词、四词序列等）及其出现次数的清单 | p7 | W1 |
 | headword (hw) | 词元条目 | 查询语法里由 hw 指定，sit 一次覆盖 sit / sits / sat / sitting | — | W1 |
@@ -28,6 +29,7 @@
 | lemma | 词元 | 只靠屈折变化区分的一组词形所属的基础词（walked/walking/walks → WALK） | p7 | W2 |
 | lemmatisation | 词形还原 | 一种标注：给每个 token 标出所属 lemma | p7 | W2 |
 | lexis | 词汇 | 语言中的词及其他有意义单位（如习语） | p7 | W3 |
+| lockword | 锁定词 | 在目标语料与参照语料中频率相近的词，是 keyword 的对照面（Brezina 2018 §3.4） | — | W3 |
 | markup | 标记 | 插进语料文件、表示原文非词语特征（段落、缺图、版式）的编码 | p7 | W4 |
 | markup language | 标记语言 | 把标记（及标注、元数据）写进机器可读文本的标准，今天即 XML | p8 | W4 |
 | metadata | 元数据 | 关于数据的数据：作者、出版日期、标题等 | p8 | W4 |
