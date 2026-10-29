@@ -39,4 +39,4 @@
 
 ## 参考
 
--
+- Brezina (2025) 的 four “good” 反讽例子：形式频率相同、意义全靠语境 → [阅读笔记](../reference/reading-brezina-2025-ai.md)

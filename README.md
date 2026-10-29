@@ -24,7 +24,7 @@
 | [tools/](tools/README.md) | #LancsBox X / CQPweb / BNClab 速查与我的实操记录 |
 | [corpora/](corpora/README.md) | 语料清单（公用语料 + 自建语料），语料卡片模板 |
 | [glossary/](glossary/terms.md) | [中英术语表](glossary/terms.md)（49 条：38 条官方带页码 + 11 条补充）+ [课程 1.3 CASS 术语表来源记录](glossary/cass-key-terms.md) |
-| [reference/](reference/methods-cheatsheet.md) | 方法速查（频率 / 搭配 / 关键词）、[工具史](reference/corpus-linguistics-history.md)、[教材章节地图](reference/book-brezina-2018.md)、[CQL 速查](reference/cql-cheatsheet.md)、资源清单 |
+| [reference/](reference/methods-cheatsheet.md) | 方法速查（频率 / 搭配 / 关键词）、[工具史](reference/corpus-linguistics-history.md)、[教材章节地图](reference/book-brezina-2018.md)、[CQL 速查](reference/cql-cheatsheet.md)、[AI 论文阅读笔记](reference/reading-brezina-2025-ai.md)、资源清单 |
 | [project/](project/README.md) | 结课小型语料研究 |
 | [templates/](templates/weekly-note.md) | 新建周笔记的模板 |
 | [learning-records/](learning-records/) | 仓库层面的决策与踩坑记录 |
