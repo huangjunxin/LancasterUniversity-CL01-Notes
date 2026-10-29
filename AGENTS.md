@@ -22,6 +22,7 @@
 - 新建周笔记一律从 [templates/weekly-note.md](templates/weekly-note.md) 生成。
 - 工具卡 `tools/<tool>.md`：固定五节（是什么 / 能干什么 / 怎么起 / 我的操作记录 / 坑）。
 - 语料卡 `corpora/<slug>.md`：从 [corpora/_语料卡片模板.md](corpora/_语料卡片模板.md) 复制。
+- 讲义（幻灯片 PDF）转进 `weeks/NN-*.md` 的「笔记」与「工具实操」，按 slide 页码标注来源；原件不入库。
 - 截图放 `assets/`，命名 `YYYY-MM-DD-weekNN-描述.png`。
 - 进度状态**只在 README 看板**维护，别的文件不写状态。
 

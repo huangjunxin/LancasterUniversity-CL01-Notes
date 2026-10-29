@@ -37,7 +37,7 @@
 
 | 周 | 主题 | 笔记 | 状态 |
 |---|---|---|---|
-| 1 | Introduction to corpus linguistics | [01](weeks/01-introduction-to-corpus-linguistics.md) | 未开始 |
+| 1 | Introduction to corpus linguistics | [01](weeks/01-introduction-to-corpus-linguistics.md) | 听课中 |
 | 2 | Key methods in computational analysis of language | [02](weeks/02-key-methods-in-computational-analysis.md) | 未开始 |
 | 3 | Corpus-based discourse analysis | [03](weeks/03-corpus-based-discourse-analysis.md) | 未开始 |
 | 4 | Build your own corpus | [04](weeks/04-build-your-own-corpus.md) | 未开始 |
