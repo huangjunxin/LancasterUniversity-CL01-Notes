@@ -12,7 +12,7 @@
 | Lecture 1, part 2 | 14 页：频率、Zipf、CQL | 截图基于 #LancsBox X 5.0.3.9 |
 | Lecture 1, part 3 | 6 页：semantic prosody、索引行标注、Kilgarriff | 截图基于 5.0.3.8 / 5.0.3.9 |
 | Lecture 1, part 4 | 7 页：两个测试 + 最终结论 | 截图基于 5.0.3.8 |
-| 1.23 访谈（Elena Semino） | 语料库的应用面：健康传播、医疗工具评估、语言测试、金融文本 | 中文转录为机器翻译；要点见本文 §10 |
+| 1.23 访谈（Elena Semino，CASS 主任） | 语料库的应用面：健康传播、医疗工具评估、语言测试、金融文本、脑科学 | 英文转录为准；要点见本文 §10 |
 | Worksheet 1 | 4 个 task 的练习单：检索方式对比、直觉 vs 语料、filter、CQL 五题 | 本文「Worksheet 1」一节已照搬表格 |
 | 1.15 KWIC 工具视频 | study 的完整操作流程：排序、过滤、标注层、元数据、汇总表 | 转录在 `source/`；操作要点见本文 §9 |
 | 1.14 上手视频 | 安装三步、多窗口、加语料三条路、CQL 入门演示 | 转录在 `source/`；操作要点已并入 [工具卡](../tools/lancsbox-x.md) |
@@ -251,7 +251,15 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 
 ### 10. 语料库能干什么：CASS 的应用面（1.23 访谈）
 
-这一节是访谈（Elena Semino，ESRC 语料库方法社会科学中心 CASS），不讲方法，讲**应用面**。
+这一节是访谈（Elena Semino，兰卡斯特大学，ESRC 语料库方法社会科学中心 **CASS 主任**），不讲方法，讲**应用面**。
+
+她的两句开场值得记原文：
+
+> It's almost as if people have to justify why they're **not** interested in language.
+
+> It's not sufficient to speak or write a language in order to be able to talk competently about that language or how that language works.
+
+还有一句把她的研究动机说完了：**语言既常是问题的一部分，也常是解决方案的一部分**（involved both in problems and in solutions）。
 
 她自己的研究主线一句话：**语言出现在“有敏感问题或潜在挑战”的沟通里** —— 疾病、污名、自闭症、精神分裂症的叙事。
 
@@ -265,7 +273,8 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 | 语言学习 | 与本族语平行语料对比，避免把“非母语特征”误当语言变化 | 第 7 周 |
 | 社会语言学 | 社会变量（地区、阶层）的语言变异 | 第 5 周 |
 | 文学 / 作者归属 | 莎士比亚与其同时代作家的大型语料，检验“莎翁造词”的说法 | 延伸 |
-| 金融文本 | 公司财报的措辞分析；从语言里找“掩盖裂缝”的迹象 | 延伸 |
+| 金融文本 | 公司财报的措辞分析；从语言里找“掩盖裂缝”（papering over cracks）甚至预测倒闭的迹象 | 延伸 |
+| 认知 / 脑科学 | 用 **EEG** 观察搭配模式在大脑里的“地位” | 延伸 |
 
 #### 案例：用语料检验疼痛问卷
 
@@ -278,10 +287,11 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 
 **发现**：
 
-- `hot` / `cold` 这类词出现**数百次**，患者大概率熟悉；另一些词非常罕见
-- 有一个词**只存在于这份问卷里**，语料中根本不用
-- 同一组（语义相近）的描述词，与 pain 搭配强弱不同 → 患者会**优先挑那个更眼熟的**，而不是更准确描述痛感的
-- 结果：强度区分失真 —— 问卷想测“疼得多厉害”，实际测到了“这个说法熟不熟”
+- **频率**：`hot` / `cold` 在语料里出现**数十万次**（进了常用词表），患者当然熟；另一头是 `rasping`、`taut` 这类罕见词
+- **极端案例**：`lancinating` 这个词，她说“as far as I’m concerned only exists in that questionnaire”
+- **医生的反应**：把频率证据拿给疼痛专家看，对方说 “that’s why my patients ask me what does X mean”
+- **真正起作用的不是频率，是搭配强度**：同一组语义相近的词里，与 `pain` 搭配更强的那个被选得最多 —— 含 `sharp` 的组多数病人选 sharp；含 `throbbing` 的组多数选 throbbing
+- **结果**：问卷本想测“疼得多厉害”，实际测到了“熟悉度 + 搭配强度”，强度区分因此失真
 
 **结论（两个方向）**：
 
@@ -296,7 +306,7 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 2. **语料库能同时做定量与定性** —— 先在大数据上看频率与搭配强度，再回到具体语境和个体叙述；这正是访谈里说的“bridging the gap”（随机对照试验 vs 质性研究）
 3. **应用场景决定方法** —— 健康传播要伦理与规模并重（线上论坛数据尤其要谨慎），语言测试要代表性，金融文本要可解释性
 
-> 转录说明：1.23 的中文是**机器翻译**，有几处明显错译（ESRC CASS → “中科院社会科学研究中心”、Macbeth → “McBth”、incarnadine 被当成普通词）。上面的人名、机构、工具名我按英文原意还原。
+> 转录说明：以**英文转录为准**（中文那版是机翻，把 ESRC CASS 译成“中科院社会科学研究中心”）。英文自动转写本身也有小错：人名写作 “Elena Samino”（应为 **Semino**）、`throbbing` 作 “thrubbing”、`taut` 作 “taught”、`EEG` 作 “EG”、Macbeth 作 “McBth”。
 
 ## 第 1 周通关清单
 
