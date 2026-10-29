@@ -19,7 +19,7 @@
 | GraphColl | 搭配网络可视化 |
 | Words | 词频、关键词一类统计 |
 | Text | 单篇文本层面的观察 |
-| Advanced queries | 复杂查询 |
+| Advanced queries | 复杂查询；实际就是 CQL，语法见 [CQL 速查](../reference/cql-cheatsheet.md) |
 | Wizard | 向导式流程，新手跟着点 |
 
 配套还有：英文 / 中文 / 日文手册、英文速查表（cheat sheet）、练习（exercises）。**中文手册存在**，卡住先翻它。
@@ -29,6 +29,16 @@
 1. 官网下载对应系统安装包，装好
 2. 载入语料：公用语料按手册导入，自建语料见 [第 4 周](../weeks/04-build-your-own-corpus.md)
 3. 拿不准流程就用 Wizard 走一遍，再回头理解每一步做了什么
+
+## 常用查询串
+
+先记三条起步的，其余见 [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)。
+
+| 查询 | 在查什么 |
+|---|---|
+| `[hw="sit" pos="V.*"] through within <s/>` | 词元 sit 的动词形式 + 紧接 through，限同句 |
+| `[word="[aeiou].*"]` | 元音开头的词形（引号里是正则） |
+| `very{2} good` | very very good |
 
 ## 我的操作记录
 

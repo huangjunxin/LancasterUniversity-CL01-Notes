@@ -112,5 +112,6 @@ p13：同一条查询换 subcorpus（BNC2014 → informal speech，11M），表�
 - [#LancsBox 官网的语料库语言学工具史时间线](../reference/corpus-linguistics-history.md)（1900s–1993，7 个节点）
 - 课程材料 1.3：CASS 术语表（38 条，2013 / 2018 rev）→ [来源记录](../glossary/cass-key-terms.md)、[条目](../glossary/terms.md)
 - Lecture 1 part 2（14 页，课程后台，未入库）
+- 查询语法怎么学 → [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)（含官方手册 / cheat sheet / 练习）
 - Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
 - Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)
