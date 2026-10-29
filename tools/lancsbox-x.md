@@ -22,6 +22,7 @@
 | Advanced queries | 复杂查询；实际就是 CQL，语法见 [CQL 速查](../reference/cql-cheatsheet.md) |
 | Wizard | 向导式流程，新手跟着点 |
 | 内置语料 | 如 Hansard Corpus（1802 至今英国议会发言，约 20 亿词） |
+| 多窗口联动 | KWIC / Text / GraphColl / Words 可并存，高亮多个窗口可一次查询全部 |
 | web scraping | 抓取网络文本进语料（见 Brezina 2025 摘要） |
 | 标注 concordance 行 | 给索引行打类目（如 evaluation: negative / neutral / positive），可抽样、自动统计占比（pt3 演示） |
 
@@ -29,9 +30,38 @@
 
 ## 怎么起
 
-1. 官网下载对应系统安装包，装好
-2. 载入语料：公用语料按手册导入，自建语料见 [第 4 周](../weeks/04-build-your-own-corpus.md)
-3. 拿不准流程就用 Wizard 走一遍，再回头理解每一步做了什么
+安装三步（录像 1.14）：
+
+1. 打开 https://lancsbox.lancs.ac.uk/ ，点 **Download now for free** —— 会自动选对操作系统的版本（也可在下方按系统单独下载）
+2. 跑安装包，按向导走完
+3. 启动。部分系统会弹安全警告，属正常；官网说明 #LancsBox X 可安全运行，按提示给权限即可
+
+装好之后**自带一个示例语料库**，可以直接开练。
+
+### 上手要点
+
+- **多窗口**：默认只有 KWIC，可以再加 Text、GraphColl、Words 窗口，拖拽、最大化、删除都行
+- **多窗口同时搜**：按住 ctrl 点选多个窗口，被高亮的全部生效，输入一次就同时查
+- **默认大小写不敏感**：打 `new` 也能命中 `New`；要严格匹配用 `==`
+- **通配符**：`new*` 命中 new、newspaper 等
+- **smart search**：全大写输入，`PASSIVE`、`ADJ NOUN` 之类，见手册第 13 节的定义（p45）
+- **CQL**：方括号开头，如 `[word="new"]`、`[word="new" pos="J.*"]`，详见 [CQL 速查](../reference/cql-cheatsheet.md)
+
+### 加语料的三条路（手册第 2 节，p6–9）
+
+| 方式 | 做什么 |
+|---|---|
+| **Corpus hub** | 从内置商店下载公用语料（如 BNC2014） |
+| **My data** | 指向本地文件，起名、选语言、决定要不要语法/语义标注 |
+| **Web** | 网页抓取：起名、选语言、填初始 URL、设定抓取网站数与深度（跟随外链几层），点 Create corpus |
+
+手册还有导出语料（2.4）与 draft corpora（2.5）两节。
+
+### 手册版本
+
+本地/官网的 `Manual_EN.pdf` 对应 **#LancsBox X 5.0.0**（Brezina & Platt 2024，50 页），官网当前版本是 **6.0.2** —— 界面细节可能有出入，按 6.x 实际操作。
+
+手册目录速查：1 下载运行 · 2 加语料 · 3 KWIC · 4 GraphColl · 5 Words（含 keywords / key n-grams） · 6 Text · 7 Wizard（含 R 代码） · **8 Searching（CQL 在 8.5，p32–36）** · 9–12 标签集附录（spaCy POS / dependency、CLAWS C7、USAS） · 13 smart search 定义 · 14 术语表。
 
 ## 常用查询串
 

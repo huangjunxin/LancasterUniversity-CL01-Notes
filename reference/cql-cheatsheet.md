@@ -80,7 +80,7 @@ BNC2014 在 #LancsBox 里带的是：词形 `word`、词元 `hw`、CLAWS7 词性
 | 材料 | 用途 |
 |---|---|
 | [Cheatsheet 6.0.0 (EN)](https://lancsbox.lancs.ac.uk/data/materials/Cheatsheet_6.0.0_en.pdf) | 一页纸语法全表，贴在旁边用 |
-| [Manual (EN)](https://lancsbox.lancs.ac.uk/data/materials/Manual_EN.pdf) | 第 8 节第 5 点（印刷 p34–36）是 CQL 正式说明 |
+| [Manual (EN)](https://lancsbox.lancs.ac.uk/data/materials/Manual_EN.pdf) | 第 8 节 Searching（**8.5 = CQL**，p32–36）是正式说明。手册对应 5.0.0，官网当前 6.0.2 |
 | [Ex_KWIC](https://lancsbox.lancs.ac.uk/data/materials/Ex_KWIC.pdf) · [Ex_Words](https://lancsbox.lancs.ac.uk/data/materials/Ex_Words.pdf) · [Ex_Text](https://lancsbox.lancs.ac.uk/data/materials/Ex_Text.pdf) · [Ex_GraphColl](https://lancsbox.lancs.ac.uk/data/materials/Ex_GraphColl.pdf) | 官方分级练习，配 answers 版 |
 | [Ex_Building_corpus](https://lancsbox.lancs.ac.uk/data/materials/Ex_Building_corpus.pdf) · [Ex_DDL](https://lancsbox.lancs.ac.uk/data/materials/Ex_DDL.pdf) | 建库与 DDL 场景，第 4、7 周用得上 |
 | [CQPweb CEQL 手册](https://cqpweb.lancs.ac.uk/doc/CQPweb-CEQL-manual.html) | 换到 CQPweb 时的 simple query 语法 |

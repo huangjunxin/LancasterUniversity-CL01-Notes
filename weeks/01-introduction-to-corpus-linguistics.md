@@ -12,6 +12,7 @@
 | Lecture 1, part 2 | 14 页：频率、Zipf、CQL | 截图基于 #LancsBox X 5.0.3.9 |
 | Lecture 1, part 3 | 6 页：semantic prosody、索引行标注、Kilgarriff | 截图基于 5.0.3.8 / 5.0.3.9 |
 | Lecture 1, part 4 | 7 页：两个测试 + 最终结论 | 截图基于 5.0.3.8 |
+| 1.14 上手视频 | 安装三步、多窗口、加语料三条路、CQL 入门演示 | 转录在 `source/`；操作要点已并入 [工具卡](../tools/lancsbox-x.md) |
 | 材料 5：Brezina (2025) AI 论文 | 16 页立场论文 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；pt3–pt4 都在引它 |
 
 四节录像的英文转录放在本地 `source/`（已 gitignore，不入库）。
