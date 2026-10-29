@@ -61,6 +61,7 @@
 | collocate | 搭配词 | 与节点词共现的词 | — | W2 |
 | span | 跨距 | 围绕节点词取左右各几个词 | — | W2 |
 | keyness | 关键性 | 目标语料相对参照语料的频率突出程度 | — | W2 |
+| multi-word expression (MWE) | 多词表达 | 由多个词组成、作为整体使用或习得的表达式；并非“像搭配”就一定真实存在 | — | W1 |
 | mutual information (MI) | 互信息 | 共现强度指标，偏向低频稀有搭配 | — | W2 |
 | log-likelihood | 对数似然 | 共现显著性统计量（G²），对高频敏感 | — | W2 |
 | logDice | logDice | 搭配强度指标，对单词语频依赖小，跨语料较可比 | — | W2 |

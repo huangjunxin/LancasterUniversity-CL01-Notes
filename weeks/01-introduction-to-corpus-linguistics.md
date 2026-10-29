@@ -10,6 +10,7 @@
 | 1.3 Glossary of terms | CASS 术语表，38 条 | 来源记录见 [glossary/cass-key-terms.md](../glossary/cass-key-terms.md) |
 | Lecture 1, part 2 | 14 页讲义：频率、Zipf 定律、结构化检索 | PPT 导出；元数据标题写的是 “CORPUS DESIGN”，内容是频率；截图基于 #LancsBox X **5.0.3.9** |
 | Lecture 1, part 3 | 6 页：semantic prosody（sit through 的负面语境）+ 为什么不能拿搜索引擎/ChatGPT 当语料 | 截图基于 #LancsBox X 5.0.3.9 |
+| Lecture 1, part 4 | 7 页：两个测试（频率 / 多词表达）+ 最终结论；附英文转录 | 截图基于 #LancsBox X **5.0.3.8** |
 | 材料 5：Brezina (2025) AI 论文 | 16 页立场论文：form vs meaning、三条语言建模路径 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；part 3 的 p4–p6 就是这篇
 
 > 已知缺口：Lecture 1 应该还有 **part 1**，以及 1.1 / 1.2 / 1.4 一类编号材料。拿到再补进上表。
@@ -124,6 +125,47 @@ Kilgarriff 那段话批评的是：把搜索引擎命中数当成语言频率来
 
 > 我的理解：这不是“别用 AI”，而是“别把 AI 的输出当数据”。数据要有边界和口径，解释要能追溯到语境 —— 这两件事恰好就是语料库方法在做的事。
 
+### 7. 两个测试：AI 的数字和定义都靠不住
+
+**测试一：频率（pt4 p1–p2）**
+
+问 ChatGPT：“people 每百万词出现多少次？比 time 多吗？” 它给了带语料出处的答案，然后被逐条核对：
+
+| 词 | ChatGPT 说的 BNC1994 | BNC2014 | COCA | **#LancsBox 实测 BNC2014** |
+|---|---|---|---|---|
+| people | ~2,100 | ~2,500 | ~2,200 | **1,222.62**（125,080 次） |
+| time | ~2,200 | ~2,400 | ~2,000 | **1,609.05**（164,614 次） |
+
+排序碰巧是对的（time > people），但**数字全部虚高**：people 高约一倍，time 高约 50%。实测环境：BNC2014 whole corpus，102M tokens，词表 858,450 个 type。
+
+**测试二：多词表达是否存在（pt4 p3–p6）**
+
+“education and courage” 是不是英语里的固定搭配？
+
+| 查法 | 结果 |
+|---|---|
+| 问 ChatGPT | 认真解释 education、courage，还给出一句现成 motto：“We need education to understand the world, and courage to change it.” |
+| #LancsBox 查 BNC2014 | **Freq 0 (0)**，Texts 0/88,171，表格空白 |
+| Google 精确检索 | 约 **26 条**，多是 TikTok / Instagram / YouTube 的励志内容，常常被标点切开 |
+
+→ 这是一个 **non-collocational expression**：AI 能给你一个像样的“意思”，语料告诉你它根本没被使用。
+
+对照资源（p6）：Routledge 的 *A Frequency Dictionary of Multi-Word Expressions in British English*，作者正是 **Brezina 与 Gablasova** —— 课程两位讲师出的工具书，专查这类“到底有没有这个说法”。
+
+### 8. 讲者的结论
+
+pt4 p7（转录同）：
+
+> Corpus linguistics remains essential—AI and LLMs are valuable tools that complement, not replace, corpus analysis. Transparency, replicability, and critical evaluation remain crucial.
+
+换成三个可执行的检查：
+
+1. **transparency**：这个数字来自哪个语料、多大、怎么切词？说得出才算证据
+2. **replicability**：换个人、换个时间，能不能得到同一个结果？
+3. **critical evaluation**：是不是把一个“看着像”的表达当成了真实用法？
+
+> 我的注：这两个测试合起来正好闭环 —— 测试一说明 AI 会给**假数字**，测试二说明 AI 会给**假意义**。前者用语料查，后者用搭配分布查，两者都不是“问一句”能解决的。
+
 ## 第 1 周通关清单
 
 这周材料堆得比较久，用下面几条判断能不能进第 2 周（都能用自己的话说出来就算过）：
@@ -136,6 +178,9 @@ Kilgarriff 那段话批评的是：把搜索引擎命中数当成语言频率来
 - [ ] 能用四个 good 的例子讲清 form 与 meaning 的区别
 - [ ] 能举出 sit through 的三个负面搭配，并解释“semantic prosody 是意义的一部分”
 - [ ] 能说明 Kilgarriff 为什么说“拿搜索命中数当频率”是坏科学
+- [ ] 能复述 people / time 测试：ChatGPT 的数字和 BNC2014 实测差多少
+- [ ] 能说出 education and courage 在 ChatGPT / BNC2014 / Google 三处的结果，并解释差异
+- [ ] 能背出最后一句的三个词：transparency、replicability、critical evaluation
 - [ ] CASS 术语表里 W1 相关条目（corpus / concordance / KWIC / token / type / balance / representativeness）能不看表解释
 
 ## 工具实操
@@ -177,5 +222,7 @@ Kilgarriff 那段话批评的是：把搜索引擎命中数当成语言频率来
 - 查询语法怎么学 → [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)（含官方手册 / cheat sheet / 练习）
 - 材料 5：Brezina (2025) → [阅读笔记](../reference/reading-brezina-2025-ai.md)
 - Kilgarriff, A. (2007). Last words: Googleology is bad science. *Computational Linguistics*, 33(1), 147–151.（讲义 pt3 p6 引用，未下载）
+- Brezina, V. & Gablasova, D. *A Frequency Dictionary of Multi-Word Expressions in British English*. Routledge.（pt4 p6 展示，未下载）
+- Lecture 1 part 4 的英文转录（课程后台，未入库）
 - Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
 - Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)
