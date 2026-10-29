@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# 编辑器
+*.swp
+.obsidian/workspace*.json
+.obsidian/cache
+
+# Python / Node（若以后加脚本）
+.venv/
+__pycache__/
+node_modules/
+
+# 语料原文与大数据文件不入库（版权 + 体积）
+data/
+scratch/
+*.zip
+*.7z
+*.tar.gz
+corpora/**/*.txt
+corpora/**/*.xml
+corpora/**/*.vrt
