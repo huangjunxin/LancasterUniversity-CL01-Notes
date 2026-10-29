@@ -45,6 +45,7 @@
 | sample | 样本 / 采样 | 收入语料的单篇文本或其节选；也指统计意义上从总体抽出的个案；还常说语料是“语言的一个样本” | p9 | W4 |
 | sample corpus | 抽样语料库 | 在指定采样框内追求平衡与代表性的语料 | p9 | W4 |
 | sampling frame | 采样框 | 规定如何从文本总体中取样、取哪些类型、哪段时间、样本数量与长度的规则 | p9 | W4 |
+| semantic prosody | 语义韵 | 词在反复出现的搭配中带上的评价色彩（sit through 多与“熬、勉强”类语境共现） | — | W1 |
 | significance test | 显著性检验 | 判定结果统计显著性的数学程序 | p9 | W2 |
 | statistical significance | 统计显著性 | 结果纯属偶然的概率很低（通常 <5%）即称显著 | p9 | W2 |
 | subcorpus | 子语料库 | 语料库中按元数据切出的一部分（如 informal speech），查询结果与它绑定 | — | W1 |

@@ -9,9 +9,10 @@
 |---|---|---|
 | 1.3 Glossary of terms | CASS 术语表，38 条 | 来源记录见 [glossary/cass-key-terms.md](../glossary/cass-key-terms.md) |
 | Lecture 1, part 2 | 14 页讲义：频率、Zipf 定律、结构化检索 | PPT 导出；元数据标题写的是 “CORPUS DESIGN”，内容是频率；截图基于 #LancsBox X **5.0.3.9** |
-| 材料 5：Brezina (2025) AI 论文 | 16 页立场论文：form vs meaning、三条语言建模路径 | [阅读笔记](../reference/reading-brezina-2025-ai.md) |
+| Lecture 1, part 3 | 6 页：semantic prosody（sit through 的负面语境）+ 为什么不能拿搜索引擎/ChatGPT 当语料 | 截图基于 #LancsBox X 5.0.3.9 |
+| 材料 5：Brezina (2025) AI 论文 | 16 页立场论文：form vs meaning、三条语言建模路径 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；part 3 的 p4–p6 就是这篇
 
-> 已知缺口：Lecture 1 应该还有 **part 1**（文件名是 pt2），以及 1.1 / 1.2 / 1.4 一类编号材料。拿到再补进上表。
+> 已知缺口：Lecture 1 应该还有 **part 1**，以及 1.1 / 1.2 / 1.4 一类编号材料。拿到再补进上表。
 
 ## 本周目标（自拟，听完课后按课程实际内容校正）
 
@@ -91,6 +92,38 @@ Brezina（2025，材料 5）把整门课的问题意识说清楚了 —— 课�
 
 → 细节见 [阅读笔记](../reference/reading-brezina-2025-ai.md)。
 
+### 5. semantic prosody：搭配会带评价色彩
+
+**Message 4（pt3 p3）：Semantic prosody is part of the meaning.**
+
+讲义用同一个查询 `[hw="sit" pos="V.*"] through within <s/>` 的 148 条结果（p1），把语境词圈出来：
+
+> bravely · rather than · forced to · had to · 10 hours of · the painful lecture · it again · those meetings about nothing
+
+按右搭配排序（p2）更清楚：
+
+| 左 | 节点 | 右 |
+|---|---|---|
+| forget your toothbrush: Could you | sit through | 10 hours of Shakespeare performed |
+| half a brain would happily | sit through | 100 million billion awkward, uncomfortable |
+| The average worker will | sit through | 6,240 meetings during their career |
+| of player expression. Evan: We | sat through | a 20-minute demo, and |
+| | sitting through | a 20-minute fashion show |
+| help myself. I'd sooner | sit through | a bad play in a |
+
+结论：**sit through 不只是“sit + through”，而是“熬过（不快的事）”**。这层评价色彩不在词典释义里，只能从搭配分布读出来 —— 这正是“意义在语境里”的可操作版本。
+
+它也把 pt2 和 pt3 接成一条线：频率（pt2）→ KWIC 把 148 条语境摊开 → 从搭配看出评价（pt3）→ 意义。
+
+### 6. 为什么不能“Google 一下”或“问 ChatGPT”
+
+- pt3 p5：中文屋漫画（一台电脑在箱子里，只留 IN / OUT）—— 形式进出，没有意义
+- pt3 p6：Kilgarriff (2007) 的 *Last words: Googleology is bad science*，讲义把标题改成 **“ChatGPTology is Bad Science”**
+
+Kilgarriff 那段话批评的是：把搜索引擎命中数当成语言频率来用 —— 门槛低，但没有语料库边界、没有归一化、数字不稳定。换成 ChatGPT 同理：回答不可复现、来源不可追溯（见 [材料 5 的阅读笔记](../reference/reading-brezina-2025-ai.md)）。
+
+> 我的理解：这不是“别用 AI”，而是“别把 AI 的输出当数据”。数据要有边界和口径，解释要能追溯到语境 —— 这两件事恰好就是语料库方法在做的事。
+
 ## 第 1 周通关清单
 
 这周材料堆得比较久，用下面几条判断能不能进第 2 周（都能用自己的话说出来就算过）：
@@ -101,6 +134,8 @@ Brezina（2025，材料 5）把整门课的问题意识说清楚了 —— 课�
 - [ ] 能说出 `[hw="sit"]` 与 `[word="sit"]` 的差别
 - [ ] 能在 #LancsBox 里跑通讲义那条查询，命中数对上 148 (1.45)；对不上时知道先查 token 口径
 - [ ] 能用四个 good 的例子讲清 form 与 meaning 的区别
+- [ ] 能举出 sit through 的三个负面搭配，并解释“semantic prosody 是意义的一部分”
+- [ ] 能说明 Kilgarriff 为什么说“拿搜索命中数当频率”是坏科学
 - [ ] CASS 术语表里 W1 相关条目（corpus / concordance / KWIC / token / type / balance / representativeness）能不看表解释
 
 ## 工具实操
@@ -141,5 +176,6 @@ Brezina（2025，材料 5）把整门课的问题意识说清楚了 —— 课�
 - Lecture 1 part 2（14 页，课程后台，未入库）
 - 查询语法怎么学 → [reference/cql-cheatsheet.md](../reference/cql-cheatsheet.md)（含官方手册 / cheat sheet / 练习）
 - 材料 5：Brezina (2025) → [阅读笔记](../reference/reading-brezina-2025-ai.md)
+- Kilgarriff, A. (2007). Last words: Googleology is bad science. *Computational Linguistics*, 33(1), 147–151.（讲义 pt3 p6 引用，未下载）
 - Leech, G. (2011). *Frequency structures*.（讲义 p1 引用，未下载）
 - Brezina, V. (2018). *Statistics in Corpus Linguistics*, ch. 2（讲义 p6 引用）→ [章节地图与按周路线](../reference/book-brezina-2018.md)
