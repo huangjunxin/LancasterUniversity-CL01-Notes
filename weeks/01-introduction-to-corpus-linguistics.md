@@ -12,6 +12,7 @@
 | Lecture 1, part 2 | 14 页：频率、Zipf、CQL | 截图基于 #LancsBox X 5.0.3.9 |
 | Lecture 1, part 3 | 6 页：semantic prosody、索引行标注、Kilgarriff | 截图基于 5.0.3.8 / 5.0.3.9 |
 | Lecture 1, part 4 | 7 页：两个测试 + 最终结论 | 截图基于 5.0.3.8 |
+| 1.15 KWIC 工具视频 | study 的完整操作流程：排序、过滤、标注层、元数据、汇总表 | 转录在 `source/`；操作要点见本文 §9 |
 | 1.14 上手视频 | 安装三步、多窗口、加语料三条路、CQL 入门演示 | 转录在 `source/`；操作要点已并入 [工具卡](../tools/lancsbox-x.md) |
 | 材料 5：Brezina (2025) AI 论文 | 16 页立场论文 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；pt3–pt4 都在引它 |
 
@@ -186,6 +187,66 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 
 **3. 第 2 题修正了我笔记的重心。** 我用 Leech 的“information about frequency”开了头，容易让人以为语料库的价值就是数频率。但测验的正确答案是“发现本来难以察觉的模式”。两者不矛盾：**频率是手段，发现模式才是目的** —— 这也是第 2 周要进搭配与关键词的原因。
 
+### 9. KWIC 工具怎么用（1.15 实操）
+
+这一节全是操作，讲者用 BNC2014 v2 搜 **study** 跑了一遍完整流程。下面每个数字都是可以拿来对口径的复现目标。
+
+**基本统计**
+
+| 项 | 值 |
+|---|---|
+| search term | `study` |
+| absolute frequency | **32,530** |
+| relative frequency | **317.97** |
+| 分布（dispersion） | 出现在 **6,177** 个文本里，全库 88,171 个文本 |
+
+指标就显示在结果区顶部，括号里是相对频率；讲者强调可以直接复制粘贴进研究报告。鼠标悬停某一行能看到更宽的语境，也能复制。
+
+**排序（sort）**
+
+- 点 Left：`a study`、`another study`、`case study`…
+- 点 Right：`study by`、`study end`、`study at`、`study conducted`…
+
+**过滤（filter）—— 做搭配最省事的入口**
+
+在右侧列的 filter 里选位置（r1 = 紧跟其后，一直到 r5），填 `participants`：
+
+| 结果 | 值 |
+|---|---|
+| 命中索引行 | **382**（3.73 per million） |
+| 涉及文本 | **240** |
+
+这就是“study 与 participants 在右侧 5 词内共现”的可量化版本。删掉过滤就回到全集。
+
+**显示标注层**
+
+`Detail` 菜单里勾选要显示的标注层：勾上 pos 与 semantic 后，`study` 显示为单数名词、语义类 **P1（education）**；左右语境的词也能同样显示。
+
+**按元数据过滤**
+
+把 genre / date 加成列之后：
+
+| 过滤条件 | 命中 | 相对频率 |
+|---|---|---|
+| 全库基线 | 32,530 | 317.97 |
+| genre = informal speech | 487 | **44.15** |
+| genre = academic prose | — | **1,298.97** |
+| date 2017-01-01 ~ 2020 | 2,398 | — |
+
+讲者的解读：study 在学术散文里的相对频率是口语的约 **30 倍**，这层差异只有按语域切分才看得见。
+
+**汇总表（summary table）—— KWIC 里最容易被忽略的功能**
+
+点右上角的 summary table 图标，直接得到：
+
+- 左语境高频片段：`in the present`、`in the current`、`used in this`、`aim of this study`、`of the present study`、`according to a study`、`results of this study`
+- 右语境高频片段：`found that`、`was published in`、`show that`、`published in the`、`was approved by`、`has shown that`、`is the first`、`was to investigate`、`was to determine`
+- 按元数据分组：每个 genre 的 **subcorpus 大小、绝对频率、相对频率**，默认按相对频率排序 → 学术散文最高，其次是杂志、报纸，末尾是 informal speech 与 written-to-be-spoken
+
+> 讲者的收尾：KWIC 的价值不只是“看语境”，而是能把语境**量化** —— 过滤 + 汇总表两步，就把“读出来的印象”变成可比对的数字。
+
+> 转录说明：1.15 的自动转写有几处识别错误（quick tool = KWIC tool、langbox = #LancsBox、pros = prose、heads = hits），上面已按上下文还原。
+
 ## 第 1 周通关清单
 
 都能用自己的话说出来，就可以进第 2 周。2026-10-29 课后测验 8/8，概念层已过关；下面三条工具复现还空着：
@@ -210,8 +271,10 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 |  | #LancsBox X | BNC2014（whole corpus） | `[hw="sit" pos="V.*"] through within <s/>` | 期望 Freq 148 (1.45)，Texts 128/88,171 | **待复现** |  |
 |  | #LancsBox X | BNC2014（whole corpus） | 词表查 time / people | 期望 1,609.05 / 1,222.62 | **待复现** |  |
 |  | #LancsBox X | BNC2014（whole corpus） | 短语查 `education and courage` | 期望 Freq 0 (0) | **待复现** |  |
+|  | #LancsBox X | BNC2014 v2（whole corpus） | 查 `study` | 期望 32,530（317.97），分布 6,177 / 88,171 | **待复现** |  |
+|  | #LancsBox X | BNC2014 v2 | 同上 + 右语境 r1–r5 过滤 `participants` | 期望 382（3.73），240 texts | **待复现** |  |
 
-> 三条都复现之后，才算“自己的环境与课程口径一致”。
+> 全部复现且数字对得上，才算“自己的环境与课程口径一致”；对不上时先查语料版本（BNC2014 v2）与 token 口径。
 
 ## 练习与测验
 
