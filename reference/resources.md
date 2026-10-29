@@ -8,6 +8,7 @@
 |---|---|---|
 | edX 课程页 | https://www.edx.org/learn/social-sciences/lancaster-university-corpus-linguistics-and-new-technologies-data-language-society | 2026-10-29 |
 | 兰卡 MOOC 说明（含主题清单） | https://wp.lancs.ac.uk/corpussummerschools/corpus-linguistics-mooc/ | 2026-10-29 |
+| 课程材料 1.3 术语表（CASS, 2013 / 2018 rev） | 课程后台 asset，不存链接 | 2026-10-29 读取 |
 
 ## 工具
 

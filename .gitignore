@@ -20,3 +20,7 @@ scratch/
 corpora/**/*.txt
 corpora/**/*.xml
 corpora/**/*.vrt
+
+# 课程原件（PDF / 讲义）不入库：版权 + 体积，只留来源记录与条目转写
+source/
+*.pdf
