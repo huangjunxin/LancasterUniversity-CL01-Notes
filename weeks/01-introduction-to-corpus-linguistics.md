@@ -12,6 +12,7 @@
 | Lecture 1, part 2 | 14 页：频率、Zipf、CQL | 截图基于 #LancsBox X 5.0.3.9 |
 | Lecture 1, part 3 | 6 页：semantic prosody、索引行标注、Kilgarriff | 截图基于 5.0.3.8 / 5.0.3.9 |
 | Lecture 1, part 4 | 7 页：两个测试 + 最终结论 | 截图基于 5.0.3.8 |
+| Worksheet 1 | 4 个 task 的练习单：检索方式对比、直觉 vs 语料、filter、CQL 五题 | 本文「Worksheet 1」一节已照搬表格 |
 | 1.15 KWIC 工具视频 | study 的完整操作流程：排序、过滤、标注层、元数据、汇总表 | 转录在 `source/`；操作要点见本文 §9 |
 | 1.14 上手视频 | 安装三步、多窗口、加语料三条路、CQL 入门演示 | 转录在 `source/`；操作要点已并入 [工具卡](../tools/lancsbox-x.md) |
 | 材料 5：Brezina (2025) AI 论文 | 16 页立场论文 | [阅读笔记](../reference/reading-brezina-2025-ai.md)；pt3–pt4 都在引它 |
@@ -275,6 +276,85 @@ relative frequency = absolute frequency / number of tokens in corpus × basis fo
 |  | #LancsBox X | BNC2014 v2 | 同上 + 右语境 r1–r5 过滤 `participants` | 期望 382（3.73），240 texts | **待复现** |  |
 
 > 全部复现且数字对得上，才算“自己的环境与课程口径一致”；对不上时先查语料版本（BNC2014 v2）与 token 口径。
+### Worksheet 1（第 1 周练习，4 个 task）
+
+官方练习单，要求在 **BNC2014 v2** 上跑。下面是原表照搬，数字留空等你填 —— 填完这一节就是你的实验记录。
+
+#### Task 1：不同检索方式的频率对比
+
+| 检索式 | Occurrences (per 1M) | Texts | 备注 |
+|---|---|---|---|
+| `research` |  |  | 单词 |
+| `research*` |  |  | 通配符，含 researcher(s) 等 |
+| `research and *` |  |  | 短语 + 通配 |
+| `*ment` |  |  | 后缀匹配 |
+| `ADJECTIVE research` |  |  | smart search |
+| `FOOD` |  |  | 语义类 smart search |
+| `SWEARWORDS` |  |  | 语义类 smart search（第 8 周会用到） |
+| `[hw="walk"]` |  |  | 词元，含 walks/walked/walking |
+| `[hw="walk" pos="V.*"]` |  |  | 只取动词用法 |
+
+> 原始提示：把鼠标停在结果上，点 Copy to Clipboard 图标，再粘贴进表（macOS 用 ⌘V）。
+
+#### Task 2：直觉 vs 语料
+
+先凭直觉答（2a–2c），再用语料核对（2d–2f）。
+
+| # | 要回答的 | 我的直觉 | 语料结果 |
+|---|---|---|---|
+| 2a | carry 常搭配哪些 particle（up / out …） |  |  |
+| 2b | 哪个 particle 最常用 |  |  |
+| 2c | carry out 常带哪些名词 |  |  |
+
+核对用的查询：
+
+| 步 | 查询 | 要求 |
+|---|---|---|
+| 2d | `[hw="carry" pos="V.*"] PARTICLE` | 按 node 排序，列出实际出现的 particle |
+| 2e | `[hw="carry" pos="V.*"]` + 各 particle（on / out …） | 记绝对频率（括号内相对值），哪个最多？2b 猜对了吗 |
+| 2f | `[hw="carry" pos="V.*"] out NOUN` | 按 node 排序，列出实际名词，对照 2c |
+
+#### Task 3：用 filter 做局部语境
+
+| 检索式 | 过滤条件 | Occurrences (per 1M) | Texts |
+|---|---|---|---|
+| `new` | `york` [anywhere RIGHT] |  |  |
+| `old` | `f*` [in R1 position] |  |  |
+| `time` | `this` [in L1 position] + `was` [in R2 position] |  |  |
+
+#### Task 4：CQL 五题
+
+原题（注意练习单自己的提醒：CQL 约定在不同工具、甚至不同版 #LancsBox 之间会有差异）：
+
+1. 找出所有作**名词**的 English（名词 pos 以 N 开头）
+2. 找出所有作**形容词**的 English（形容词 pos 以 J 开头）
+3. 找出所有以字母 z 开头的**名词**
+4. 找出作**形容词**的 English，后接任意**复数普通名词**（CLAWS7 里记作 NN2）
+5. 找出作**名词**的 English，且**紧跟在一个句号之后**
+
+我写的答案（**尚未在你的 #LancsBox 里验证**，跑完请回来改）：
+
+| # | 我的查询 | 依据 |
+|---|---|---|
+| 1 | `[hw="English" pos="N.*"]` | 名词 = N 开头；English 无屈折，hw 与 word 等价 |
+| 2 | `[hw="English" pos="J.*"]` | 形容词 = J 开头 |
+| 3 | `[pos="N.*" word="z.*"]` | 方括号内两个条件是同一个 token 的 AND；词形以 z 开头 |
+| 4 | `[hw="English" pos="J.*"] [pos="NN2"]` | 两个 token 相邻；NN2 = 复数普通名词 |
+| 5 | `/punc="\."/ [hw="English" pos="N.*"]` | 标点用 `/punc=""/` 且句号要转义；然后是名词 English |
+
+练习单给的 CQL 速查（p4）：
+
+| 写法 | 意思 |
+|---|---|
+| `[hw="new.*"]` | 词元以 new 开头 |
+| `[word="walk" pos="N.*"]` | walk 作名词 |
+| `[word=="Cat"]` | 大小写敏感检索 |
+| `[pos="VB.*"] [pos="R.*"]{0,3} [pos="V.N"]` | be 动词 + 0–3 个副词 + 过去分词 |
+| `/punc="\?|\.|,|;"/` | 检索标点，特殊字符要转义 |
+
+#### 做完之后
+
+把 Task 1 的九行数字填掉，Task 2 的三处“直觉 vs 语料”对照写清楚，Task 3、4 的结果抄回表里。这一页填完，第 1 周的动手部分就闭环了。
 
 ## 练习与测验
 
